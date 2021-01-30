@@ -4,8 +4,10 @@
 using namespace std;
 
 int main(){
+    cin.tie(0);
+    cin.sync_with_stdio(false);
     int K;
-    cin>>K;
+    cin>>K;    
     while(K--){
         vector<vector<int>> map(20001);
         int kind[20001]={0}; //unknown: 0
@@ -18,16 +20,16 @@ int main(){
             map[first].push_back(second);
             map[second].push_back(first);
         }
+        queue<pair<int,int>> q;
         for(int i=0;i<V;i++){
             if(kind[i])continue;
-            queue<pair<int,int>> q;
             q.push(make_pair(i, 1));
             kind[i] = 1;
             while(!q.empty()){
                 int node = q.front().first;
                 int node_kind = q.front().second;
                 int next_kind;
-                if(node_kind==1)next_kind=2; else next_kind=1;
+                next_kind = 3-node_kind;
                 q.pop();
                 for(int k : map[node]){
                     if(kind[k]==node_kind){
