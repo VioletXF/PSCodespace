@@ -1,40 +1,52 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "shell",
-			"label": "build",
-			"command": "/usr/bin/g++",
-			"args": [
-				"-std=c++11",
-				"-g",
-				"${file}",
-				"-o",
-				"${fileDirname}/main.exe"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"detail": "컴파일러: /usr/bin/g++"
-		},
-		{
-			"type": "shell",
-			"label": "run",
-			"command": "${fileDirname}/main.exe",
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": {
-				"kind": "test",
-				"isDefault": true
-			}
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build",
+            "command": "/usr/local/bin/g++-10",
+            "args": [
+                "-std=c++14",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/main.out"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "컴파일러: /usr/bin/g++"
+        },
+        {
+            "type": "shell",
+            "label": "run",
+            "command": "${fileDirname}/main.out",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "debug with lldb",
+            "command": "lldb ${fileDirname}/main.out",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
 }
