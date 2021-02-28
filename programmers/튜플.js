@@ -1,3 +1,7 @@
+/*
+    튜플
+    https://programmers.co.kr/learn/courses/30/lessons/64065
+*/
 function solution(s) {
     var answer = [];
     let input = JSON.parse(s.replace(/\{/g,"[").replace(/\}/g,"]"));
