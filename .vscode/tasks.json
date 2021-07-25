@@ -4,7 +4,7 @@
         {
             "type": "shell",
             "label": "build",
-            "command": "/usr/local/bin/g++-10",
+            "command": "g++",
             "args": [
                 "-std=c++11",
                 "-g",
